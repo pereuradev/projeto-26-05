@@ -1,0 +1,569 @@
+:root {
+    --color-verde: #2FB89A;
+    --color-azul: #2E5090;
+    --color-laranja: #E94B3C;
+    --color-amarelo: #F4D03F;
+    --color-cinza-escuro: #3A3E43;
+    --color-preto: #1A1A1A;
+    --color-white: #ffffff;
+    --color-light: #f0f0f0;
+    --color-error: #E94B3C;
+
+    --spacing-sm: 5px;
+    --spacing-md: 10px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-size-base: 16px;
+    --font-size-small: 14px;
+
+    --border-radius-sm: 5px;
+    --border-radius-md: 10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    background-color: var(--color-white);
+    color: var(--color-cinza-escuro);
+    min-height: 100vh;
+    padding: var(--spacing-lg);
+    position: relative;
+    overflow-x: hidden;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* ============================================================
+   DARK MODE — funciona com html.dark-mode OU body.dark-mode
+   ============================================================ */
+html.dark-mode body,
+body.dark-mode {
+    background-color: var(--color-preto);
+    color: var(--color-white);
+}
+
+/* Botão de tema */
+.btn-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 100;
+    padding: 8px 15px;
+    border: 2px solid var(--color-azul);
+    background: transparent;
+    color: var(--color-azul);
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--font-size-small);
+    transition: all 0.3s ease;
+}
+
+html.dark-mode .btn-theme,
+body.dark-mode .btn-theme {
+    border-color: var(--color-verde);
+    color: var(--color-verde);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+
+/* Container */
+.container {
+    background-color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-xl);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
+    border-top: 4px solid var(--color-verde);
+    position: relative;
+    z-index: 20;
+    transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+html.dark-mode .container,
+body.dark-mode .container {
+    background-color: var(--color-cinza-escuro);
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.6);
+    border-top-color: var(--color-verde);
+}
+
+/* Textos dentro do container */
+html.dark-mode .container h1,
+html.dark-mode .container label,
+html.dark-mode .container legend,
+html.dark-mode .container .legend-radio,
+html.dark-mode .container .radio-option label,
+html.dark-mode .container .login-link,
+body.dark-mode .container h1,
+body.dark-mode .container label,
+body.dark-mode .container legend,
+body.dark-mode .container .legend-radio,
+body.dark-mode .container .radio-option label,
+body.dark-mode .container .login-link {
+    color: var(--color-white);
+}
+
+/* Inputs de texto */
+html.dark-mode input[type="text"],
+html.dark-mode input[type="email"],
+html.dark-mode input[type="password"],
+body.dark-mode input[type="text"],
+body.dark-mode input[type="email"],
+body.dark-mode input[type="password"] {
+    background-color: #2a2d31;
+    border-color: #4a4e54;
+    color: var(--color-white);
+}
+
+html.dark-mode input[type="text"]:focus,
+html.dark-mode input[type="email"]:focus,
+html.dark-mode input[type="password"]:focus,
+body.dark-mode input[type="text"]:focus,
+body.dark-mode input[type="email"]:focus,
+body.dark-mode input[type="password"]:focus {
+    border-color: var(--color-verde);
+    box-shadow: 0 0 0 4px rgba(47, 184, 154, 0.15);
+}
+
+/* ============================================================
+   SELECT — DARK MODE (BUG CORRIGIDO)
+   ============================================================ */
+select {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+    color: var(--color-cinza-escuro);
+    cursor: pointer;
+    appearance: auto;
+}
+
+select:focus {
+    border-color: var(--color-verde);
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(47, 184, 154, 0.1);
+}
+
+html.dark-mode select,
+body.dark-mode select {
+    background-color: #2a2d31;
+    border-color: #4a4e54;
+    color: var(--color-white);
+}
+
+html.dark-mode select:focus,
+body.dark-mode select:focus {
+    border-color: var(--color-verde);
+    box-shadow: 0 0 0 4px rgba(47, 184, 154, 0.15);
+}
+
+html.dark-mode select option,
+body.dark-mode select option {
+    background-color: #2a2d31;
+    color: var(--color-white);
+}
+
+/* ============================================================
+   FORMAS GEOMÉTRICAS
+   ============================================================ */
+.shape-verde-left {
+    position: fixed;
+    width: 280px;
+    height: 280px;
+    background: var(--color-verde);
+    border-radius: 50%;
+    top: 10%;
+    left: -80px;
+    z-index: 2;
+    box-shadow: 0 0 80px rgba(47, 184, 154, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.shape-verde-left:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 100px rgba(47, 184, 154, 0.5);
+}
+
+.shape-azul-left {
+    position: fixed;
+    width: 220px;
+    height: 220px;
+    background: var(--color-azul);
+    border-radius: 50%;
+    bottom: 15%;
+    left: -60px;
+    z-index: 2;
+    box-shadow: 0 0 80px rgba(46, 80, 144, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.shape-azul-left:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 100px rgba(46, 80, 144, 0.5);
+}
+
+.shape-laranja-right {
+    position: fixed;
+    width: 250px;
+    height: 250px;
+    background: orange;
+    border-radius: 50%;
+    top: 15%;
+    right: -70px;
+    z-index: 2;
+    box-shadow: 0 0 80px rgba(230, 147, 39, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.shape-laranja-right:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 100px rgba(230, 147, 39, 0.5);
+}
+
+.shape-triangle-top {
+    position: fixed;
+    width: 0;
+    height: 0;
+    border-left: 90px solid transparent;
+    border-right: 90px solid transparent;
+    border-bottom: 150px solid var(--color-laranja);
+    top: 10%;
+    right: 18%;
+    z-index: 1;
+    opacity: 0.9;
+    transition: 0.4s ease;
+}
+
+.shape-triangle-top:hover {
+    transform: rotate(-10deg) scale(1.05);
+}
+
+.shape-amarelo-right {
+    position: fixed;
+    width: 240px;
+    height: 240px;
+    background: var(--color-amarelo);
+    border-radius: 50%;
+    bottom: 10%;
+    right: -80px;
+    z-index: 2;
+    box-shadow: 0 0 80px rgba(244, 208, 63, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.shape-amarelo-right:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 100px rgba(244, 208, 63, 0.5);
+}
+
+.shape-square-top {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, var(--color-verde), var(--color-azul));
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.shape-square-bottom {
+    position: fixed;
+    width: 180px;
+    height: 180px;
+    background: green;
+    bottom: 5%;
+    right: 10%;
+    transform: rotate(45deg);
+    z-index: 2;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shape-square-bottom:hover {
+    transform: rotate(45deg) scale(1.15);
+    box-shadow: 0 0 100px rgba(0, 128, 0, 0.4);
+}
+
+/* ============================================================
+   HEADER E LOGO
+   ============================================================ */
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--color-light);
+}
+
+.logo {
+    width: 200px;
+    height: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    color: var(--color-azul);
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+html.dark-mode h1,
+body.dark-mode h1 {
+    color: var(--color-white);
+}
+
+/* ============================================================
+   FORMULÁRIO
+   ============================================================ */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+fieldset {
+    border: 3px solid var(--color-light);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    background-color: rgba(47, 184, 154, 0.02);
+    width: 100%;
+    transition: border-color 0.4s ease;
+}
+
+html.dark-mode fieldset,
+body.dark-mode fieldset {
+    border-color: #4a4e54;
+}
+
+legend {
+    font-weight: 600;
+    color: var(--color-azul);
+    padding: 0 var(--spacing-md);
+    font-size: 16px;
+    font-family: var(--font-family);
+}
+
+html.dark-mode legend,
+body.dark-mode legend {
+    color: var(--color-verde);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+    text-align: center;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+label {
+    font-weight: 500;
+    color: var(--color-cinza-escuro);
+    font-size: var(--font-size-base);
+    transition: color 0.3s ease;
+}
+
+html.dark-mode label,
+body.dark-mode label {
+    color: var(--color-white);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: var(--spacing-md);
+    border: 2px solid var(--color-light);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    font-family: var(--font-family);
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #fafafa;
+    color: var(--color-cinza-escuro);
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: var(--color-verde);
+    background-color: var(--color-white);
+    box-shadow: 0 0 0 4px rgba(47, 184, 154, 0.1);
+}
+
+input::placeholder {
+    color: #b0b0b0;
+}
+
+/* ============================================================
+   BOTÕES
+   ============================================================ */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    margin-top: var(--spacing-xl);
+    width: 100%;
+}
+
+.btn {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-verde), #24a882);
+    color: var(--color-white);
+    box-shadow: 0 4px 15px rgba(47, 184, 154, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47, 184, 154, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #ff3b30, #c62828);
+    color: white;
+    border: 2px solid #c62828;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(255, 59, 48, 0.35);
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #ff5f57, #b71c1c);
+    border-color: #b71c1c;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 59, 48, 0.45);
+}
+
+.btn-secondary:active {
+    transform: translateY(0);
+}
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+.login-link {
+    text-align: center;
+    margin-top: var(--spacing-lg);
+    color: var(--color-cinza-escuro);
+    font-size: var(--font-size-small);
+    transition: color 0.3s ease;
+}
+
+html.dark-mode .login-link,
+body.dark-mode .login-link {
+    color: var(--color-white);
+}
+
+.login-link a {
+    color: var(--color-verde);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.login-link a:hover {
+    color: var(--color-azul);
+    text-decoration: underline;
+}
+
+/* ============================================================
+   RESPONSIVIDADE
+   ============================================================ */
+@media (max-width: 768px) {
+    body { padding: var(--spacing-md); }
+    .container { padding: var(--spacing-lg); }
+    h1 { font-size: 24px; }
+    .logo { width: 70px; }
+    .form-actions { flex-direction: column; }
+    .btn { width: 100%; }
+    .btn-theme { top: 15px; right: 15px; padding: 7px 12px; font-size: 13px; }
+}
+
+@media (max-width: 480px) {
+    .container { padding: var(--spacing-md); }
+    h1 { font-size: 20px; }
+    .logo { width: 60px; }
+    fieldset { padding: var(--spacing-md); }
+    legend { font-size: 15px; }
+    .btn { padding: 10px 20px; font-size: 14px; }
+    .btn-theme { top: 10px; right: 10px; padding: 6px 10px; font-size: 12px; border-width: 1.5px; }
+
+    .shape-verde-left,
+    .shape-azul-left,
+    .shape-laranja-right,
+    .shape-amarelo-right,
+    .shape-square-top,
+    .shape-square-bottom {
+        opacity: 0.1;
+    }
+}
+
+/* ============================================================
+   ACESSIBILIDADE
+   ============================================================ */
+*:focus-visible {
+    outline: 3px solid var(--color-verde);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

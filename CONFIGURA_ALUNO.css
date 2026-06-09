@@ -1,0 +1,126 @@
+.config-section {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 25px;
+}
+
+.config-title {
+    font-size: 20px;
+    color: var(--texto);
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--input-bg, transparent);
+    color: var(--texto);
+    font-size: 15px;
+}
+
+.form-input:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+/* campo de senha com ícone de mostrar/ocultar */
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container .form-input {
+    padding-right: 45px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.toggle-password:hover {
+    color: var(--texto);
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.alert-success {
+    background-color: rgba(47, 179, 153, 0.15);
+    color: #2fb399;
+    border: 1px solid rgba(47, 179, 153, 0.3);
+}
+
+.alert-danger {
+    background-color: rgba(233, 75, 60, 0.15);
+    color: #E94B3C;
+    border: 1px solid rgba(233, 75, 60, 0.3);
+}
+
+.btn-danger {
+    background-color: #E94B3C !important;
+    color: #ffffff !important;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #c93b2d !important;
+}
+
+.btn-save {
+    background: var(--verde);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-save:hover {
+    background: #269982;
+}
+
+.btn-sair {
+    color: #E94B3C !important;
+    font-weight: 600;
+}
+
+.btn-sair:hover {
+    background: rgba(233, 75, 60, 0.1) !important;
+    color: #E94B3C !important;
+}

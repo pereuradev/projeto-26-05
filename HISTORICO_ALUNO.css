@@ -1,0 +1,222 @@
+/* ==========================================================================
+   HISTORICO_ALUNO.css
+   Complementa TELA_INICIO_PROF.css
+   ========================================================================== */
+
+:root { 
+    --laranja: #E94B3C; 
+    --amarelo: #F59E0B;
+}
+
+/* --------------------------------------------------------------------------
+   CORREÇÃO DA SIDEBAR E BOTÃO DE TEMA (Flexbox)
+   -------------------------------------------------------------------------- */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar .btn-sair { 
+    color: var(--laranja); 
+}
+
+.sidebar .btn-sair:hover { 
+    background: rgba(233, 75, 60, 0.1); 
+}
+
+/* O position: static; resolve o bug do botão voando fora da sidebar */
+.theme-toggle {
+    position: static; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 100%;
+    margin-top: auto;
+    padding: 15px 18px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--card-bg);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: background-color var(--transition), 
+                color var(--transition), 
+                border-color var(--transition), 
+                box-shadow var(--transition);
+}
+
+.theme-toggle:hover {
+    background: rgba(47, 179, 153, 0.12);
+    color: var(--verde);
+    border-color: var(--verde);
+}
+
+/* --------------------------------------------------------------------------
+   LISTA DO HISTÓRICO
+   -------------------------------------------------------------------------- */
+.historico-container {
+    max-width: 900px;
+}
+
+.historico-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.historico-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 24px 30px;
+    box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+    transition: transform var(--transition), box-shadow var(--transition);
+    backdrop-filter: blur(10px);
+}
+
+.historico-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.historico-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.historico-info h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--texto);
+    margin: 0;
+}
+
+.historico-info p {
+    font-size: 14px;
+    color: var(--texto-secundario);
+    margin: 0;
+}
+
+.data-jogo {
+    font-size: 13px;
+    color: var(--texto-secundario);
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   PONTUAÇÕES (CORES DINÂMICAS)
+   -------------------------------------------------------------------------- */
+.historico-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: var(--card-bg);
+    border: 4px solid var(--border);
+    flex-shrink: 0;
+}
+
+.score-valor {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* Variações de cor da nota */
+.nota-alta {
+    border-color: var(--verde);
+    color: var(--verde);
+    box-shadow: 0 0 15px rgba(47, 179, 153, 0.2);
+}
+
+.nota-media {
+    border-color: var(--amarelo);
+    color: var(--amarelo);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+.nota-baixa {
+    border-color: var(--laranja);
+    color: var(--laranja);
+    box-shadow: 0 0 15px rgba(233, 75, 60, 0.2);
+}
+
+/* --------------------------------------------------------------------------
+   ESTADO VAZIO (NENHUM QUIZ)
+   -------------------------------------------------------------------------- */
+.empty-state {
+    text-align: center;
+    padding: 64px 32px;
+    background: var(--card-bg);
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+}
+
+.empty-state h2 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+.empty-state p {
+    margin-bottom: 24px;
+    font-size: 15px;
+    color: var(--texto-secundario);
+    line-height: 1.7;
+}
+
+.btn-voltar {
+    display: inline-block;
+    padding: 14px 28px;
+    border-radius: 14px;
+    background: var(--verde);
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: none;
+    transition: background-color var(--transition), transform var(--transition);
+}
+
+.btn-voltar:hover {
+    background: #269680;
+    transform: translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVO
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+    .historico-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .theme-toggle {
+        width: 100%;
+        margin-top: 10px;
+        justify-content: center;
+    }
+}
